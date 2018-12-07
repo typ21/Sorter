@@ -81,7 +81,7 @@ public class Main {
 				}
 			}
 		}
-		System.out.println("Es gibt " + combinations.size() + " Kombinationen.");
+//		System.out.println("Es gibt " + combinations.size() + " Kombinationen.");
 
 		/**
 		 * ask user and setup score
@@ -104,10 +104,17 @@ public class Main {
 			posi[1] = list.get(arrIntCombis[1]);
 //			System.out.println(posi[0] + " vs. " + posi[1]);
 
-			System.out.println("Was ist wichtiger/besser?:");
+			System.out.println("[" + i + "/" + combinations.size() + "]" + " Was ist wichtiger/besser?:");
 			System.out.println("1: " + posi[0]);
 			System.out.println("2: " + posi[1]);
-			int choice = sc.nextInt();
+			int choice;
+			while (true) {
+				choice = sc.nextInt();
+				if (choice == 1 || choice == 2) {
+					break;
+				}
+				System.out.println("Falsche Eingabe. Wiederholen:");
+			}
 //			System.out.println(posi[choice - 1] + " ist wichtiger/besser.");
 
 			score[arrIntCombis[choice - 1]]++;
@@ -126,6 +133,7 @@ public class Main {
 		Collections.reverse(listFinal);
 		String[] arrInOrder = listFinal.toArray(new String[0]);
 
+		System.out.println("--------------------");
 		System.out.println("Fertige Reihenfolge:");
 		for (int i = 0; i < arrInOrder.length; i++) {
 			System.out.println((i + 1) + ". " + arrInOrder[i]);
