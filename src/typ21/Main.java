@@ -1,5 +1,6 @@
 package typ21;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,7 +9,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
 
@@ -108,11 +114,22 @@ public class Main {
 			score[arrIntCombis[choice - 1]]++;
 		}
 		sc.close();
-		
+
 		/**
-		 * 
+		 * convert and output
 		 */
-		
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		for (int i = 0; i < score.length; i++) {
+			map.put(score[i], list.get(i));
+		}
+		Map<Integer, String> mapSorted = new TreeMap<Integer, String>(map);
+		ArrayList<String> listFinal = new ArrayList<String>(Arrays.asList(mapSorted.values().toArray(new String[0])));
+		Collections.reverse(listFinal);
+		String[] arrInOrder = listFinal.toArray(new String[0]);
+		System.out.println("Fertige Reihenfolge:");
+		for (int i = 0; i < arrInOrder.length; i++) {
+			System.out.println(arrInOrder[i]);
+		}
 	}
 
 }
