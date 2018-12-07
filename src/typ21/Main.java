@@ -34,8 +34,8 @@ public class Main {
 		try {
 			isr = new InputStreamReader(fis, "UTF8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Sollte niemals erreicht werden! Beende ...");
+			System.exit(2);
 		}
 		BufferedReader br = new BufferedReader(isr);
 		String line;
@@ -47,8 +47,8 @@ public class Main {
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Kein Zugriff (mehr) auf Datei! Beende ...");
+			System.exit(3);
 		}
 
 		/**
