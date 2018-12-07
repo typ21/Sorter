@@ -104,12 +104,6 @@ public class Main {
 			posi[1] = list.get(arrIntCombis[1]);
 //			System.out.println(posi[0] + " vs. " + posi[1]);
 
-			try {
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			} catch (InterruptedException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			System.out.println("Was ist wichtiger/besser?:");
 			System.out.println("1: " + posi[0]);
 			System.out.println("2: " + posi[1]);
@@ -132,12 +126,6 @@ public class Main {
 		Collections.reverse(listFinal);
 		String[] arrInOrder = listFinal.toArray(new String[0]);
 
-		try {
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-		} catch (InterruptedException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		System.out.println("Fertige Reihenfolge:");
 		for (int i = 0; i < arrInOrder.length; i++) {
 			System.out.println((i + 1) + ". " + arrInOrder[i]);
