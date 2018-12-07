@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -75,7 +76,43 @@ public class Main {
 				}
 			}
 		}
-		System.out.println(combinations.size());
+		System.out.println("Es gibt " + combinations.size() + " Kombinationen.");
+
+		/**
+		 * ask user and setup score
+		 */
+		int[] score = new int[list.size()];
+		for (int i = 0; i < score.length; i++) {
+			score[i] = 0;
+		}
+
+		Scanner sc = new Scanner(System.in);
+		for (int i = 0; i < combinations.size(); i++) {
+			String thisCombi = combinations.get(i);
+			String[] arrStrCombis = thisCombi.split("_");
+			int[] arrIntCombis = new int[arrStrCombis.length];
+			for (int j = 0; j < arrStrCombis.length; j++) {
+				arrIntCombis[j] = Integer.parseInt(arrStrCombis[j]);
+			}
+			String[] posi = new String[2];
+			posi[0] = list.get(arrIntCombis[0]);
+			posi[1] = list.get(arrIntCombis[1]);
+			System.out.println(posi[0] + " vs. " + posi[1]);
+
+			System.out.println("Was ist wichtiger/besser?:");
+			System.out.println("1: " + posi[0]);
+			System.out.println("2: " + posi[1]);
+			int choice = sc.nextInt();
+			System.out.println(posi[choice - 1] + " ist wichtiger/besser.");
+
+			score[arrIntCombis[choice - 1]]++;
+		}
+		sc.close();
+		
+		/**
+		 * 
+		 */
+		
 	}
 
 }
