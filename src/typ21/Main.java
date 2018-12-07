@@ -1,6 +1,5 @@
 package typ21;
 
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,13 +102,19 @@ public class Main {
 			String[] posi = new String[2];
 			posi[0] = list.get(arrIntCombis[0]);
 			posi[1] = list.get(arrIntCombis[1]);
-			System.out.println(posi[0] + " vs. " + posi[1]);
+//			System.out.println(posi[0] + " vs. " + posi[1]);
 
+			try {
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			} catch (InterruptedException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("Was ist wichtiger/besser?:");
 			System.out.println("1: " + posi[0]);
 			System.out.println("2: " + posi[1]);
 			int choice = sc.nextInt();
-			System.out.println(posi[choice - 1] + " ist wichtiger/besser.");
+//			System.out.println(posi[choice - 1] + " ist wichtiger/besser.");
 
 			score[arrIntCombis[choice - 1]]++;
 		}
@@ -126,9 +131,16 @@ public class Main {
 		ArrayList<String> listFinal = new ArrayList<String>(Arrays.asList(mapSorted.values().toArray(new String[0])));
 		Collections.reverse(listFinal);
 		String[] arrInOrder = listFinal.toArray(new String[0]);
+
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		} catch (InterruptedException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Fertige Reihenfolge:");
 		for (int i = 0; i < arrInOrder.length; i++) {
-			System.out.println(arrInOrder[i]);
+			System.out.println((i + 1) + ". " + arrInOrder[i]);
 		}
 	}
 
